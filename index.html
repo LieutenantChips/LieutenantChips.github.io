@@ -1,1 +1,608 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Engine And Tractor Power</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+$(function () {
+    $('.list-group-item > .show-menu').on('click', function(event) {
+		event.preventDefault();
+		$(this).closest('li').toggleClass('open');
+	});
+});
+$(function () {
+    $('.list-group-submenu .list-group-submenu-item.erased').on('click', function(event) {
+		event.preventDefault();
+		$(this).closest('.list-group-item').toggleClass('open');
+	});
+});
+
+
+$(function(){ //small panel.
+	$('.list-group').hover(function(){
+	        $(this).find('.small-footer-panel').slideDown(250);
+	    },function(){
+	        $(this).find('.small-footer-panel').slideUp(250); //.fadeOut(205)
+	    });
+})
+
+$(function(){ //small panel.
+	$('.list-group-item').hover(function(){
+	        $(this).addClass('grayBackground');
+	    },function(){
+	        $(this).removeClass('grayBackground'); //.fadeOut(205)
+	    });
+})
+
+//clickable panel
+$(document).on('click', '.panel-heading span.clickable', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideUp();
+        $this.addClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    } else {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $this.removeClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).on('click', '.panel div.clickable', function (e) {
+    var $this = $(this);
+    if (!$this.hasClass('panel-collapsed')) {
+        $this.parents('.panel').find('.panel-body').slideUp();
+        $this.addClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+    } else {
+        $this.parents('.panel').find('.panel-body').slideDown();
+        $this.removeClass('panel-collapsed');
+        $this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+    }
+});
+$(document).ready(function () {
+    $('.panel-heading span.clickable').click();
+    $('.panel div.clickable').click();
+});
+
+
+
+</script>
+
+
+
+<style>
+
+
+.clickable
+{
+    cursor: pointer;
+}
+
+.clickable .glyphicon
+{
+    background: rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px
+}
+
+.panel-heading span
+{
+    margin-top: -23px;
+    font-size: 15px;
+    margin-right: -9px;
+}
+.leftBox{
+	width:40%;
+	float:left;
+}
+.rightBox{
+	float:left;
+	width:60%;
+}
+.circularBorder{
+	border-radius: 5px;
+	border:6px solid #91877C;
+}
+
+.circularSmallerBorder{
+	border-radius: 5px;
+	border:3px solid #91877C;
+}
+
+.list-group > .small-footer-panel {
+    color: #fff;
+    background-color: #DB8B1A;
+    height:25px;
+    text-align:center;
+    display:none;
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
+
+
+.list-group {
+	overflow: hidden;
+	border-left: 1px solid rgb(221, 221, 221);
+	border-right: 1px solid rgb(221, 221, 221);
+}
+.list-group-item:first-child, .list-group-item:last-child {
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	overflow: hidden;
+}
+.list-group-item {
+	border-left: 0px solid rgb(221, 221, 221);
+	border-right: 0px solid rgb(221, 221, 221);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.list-group-item > .show-menu {
+	position: absolute;
+	height: 100%; width:24px;
+	top: 0px; right: 0px;
+	background-color: rgba(51, 51, 51, 0.2);
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.list-group-item > .show-menu > span {
+	position: absolute;
+	top: 50%;
+	margin-top: -7px;
+	padding: 0px 5px;
+}
+.list-group-submenu {
+	position: absolute;
+	top: 0px;
+	right: -88px;
+	white-space: nowrap;
+	list-style: none;
+	padding-left: 0px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.list-group-submenu .list-group-submenu-item {
+	float: right;
+	white-space: nowrap;
+	display: block;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	background-color: rgb(51, 51, 51);
+	color: rgb(235, 235, 235);
+}
+.list-group-item.open {
+	margin-left: -88px;
+}
+.list-group-item.open > .show-menu {
+	right: 88px;
+}
+.list-group-item.open .list-group-submenu{
+	right: 0px;
+}
+
+.list-group-submenu .list-group-submenu-item.success {
+	color: rgb(255, 255, 255);
+	background-color: #DB8B1A;
+}
+
+.list-group-submenu .list-group-submenu-item.erased {
+	color: rgb(255, 255, 255);
+	background-color: #2E1D05;
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+
+.orangeBackground
+{
+	background-color: #E6B30E;
+}
+.grayBackground
+{
+	background-color:#ADA194;
+}
+.containerSmall{
+	width: 90%;
+}
+
+</style>
+</head>
+<body class="orangeBackground">
+<div id="wrapper" >
+
+<section>
+<div class="leftBox">
+<img src="downloads/alanBookCover.jpeg" style="width:88%;height:100%;margin-left:11%;">
+</div>
+<div class="container rightBox"style="margin-top:4%;">
+    <h2> Please choose your units:</h2>
+    <nav style="margin-left:20px">
+            <a href="http://www.asabe.org/" target="_blank">Link to ASABE</a>
+    </nav>
+    <div class="row" style="margin-left:20px">
+        <div class="" style="width:80%">
+            <div class="panel panel-warning circularBorder">
+                <div class="panel-heading clickable">
+                    <h3 class="panel-title">
+                        Chapters in SI Units:</h3>
+                    <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
+                </div>
+                <div class="panel-body">
+					<div class="container"  style="width:95%">
+					    <div class="row">
+							<div class="">
+								<ul class="list-group circularSmallerBorder" id="outer">
+									<li class="list-group-item" id="tog">
+										Chp 2: Dual Cycle
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/dual-cycle-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 2: Dual Cycle Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/dual-cy-effic.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 5: Engine Simulator
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/E&TP.zip" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 6: Fuels
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/FUELCALC.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 9: Carburetion
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/EAD-curve.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 11: Turbochargers
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/Turbo-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 13: Lubrication
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/LINERLUB-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 14: Motor Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/motor-eff-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 14: Pump Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/pump-eff-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 15: Transmission Analysis
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/transmission-SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 15: Tractor Steering
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/steer.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 16: Tractor Performance
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/PREDICTING_TRACTOR_FIELD_PERFORMANCE_9-8-09.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 16: Tractor Pulling a Plow
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/TRAKSIM_SI.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<div class="small-footer-panel">Click arrow to Download!</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+        <div class="row" style="margin-left:20px">
+        <div class="" style="width:80%">
+            <div class="panel panel-warning circularBorder">
+                <div class="panel-heading clickable">
+                    <h3 class="panel-title">
+                        Chapters in Customary Units:</h3>
+                    <span class="pull-right "><i class="glyphicon glyphicon-minus"></i></span>
+                </div>
+                <div class="panel-body">
+					<div class="container" style="width:95%">
+					    <div class="row">
+							<div class="">
+								<ul class="list-group circularSmallerBorder">
+								<li class="list-group-item">
+										Chp 2: Dual Cycle
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/dual-cycle.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 2: Dual Cycle Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/dual-cy-effic.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 5: Engine Simulator
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/E&TP.zip" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 6: Fuels
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/FUELCALC.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 9: Carburetion
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/EAD-curve.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+													<li class="list-group-item">
+										Chp 11: Turbochargers
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/Turbo.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 13: Lubrication
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/LINERLUB.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 14: Motor Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/motor-eff.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 14: Pump Efficiency
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/pump-eff.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 15: Transmission Analysis
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/transmission.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 15: Tractor Steering
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/steer.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 16: Tractor Performance
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/TRAKSIM.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="list-group-item">
+										Chp 16: Tractor Pulling a Plow
+										<span class="show-menu">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										<ul class="list-group-submenu">
+											<li class="list-group-submenu-item erased"><span class="glyphicon glyphicon-remove"></span></li>
+											<li class="list-group-submenu-item success">
+											<a href="downloads/PREDICTING_TRACTOR_FIELD_PERFORMANCE_9-8-09.xls" download><span class="glyphicon glyphicon-ok"></span></a>
+											</li>
+										</ul>
+									</li>
+									<div class="small-footer-panel">Click arrow to Download!</div>
+								</ul>
+							</div>
+						</div>
+					</div>         
+                </div>
+               </div>
+            </div>
+        </div>
+   </div>
+</div>
+</div>
+</section>
+</body>
+</html>
