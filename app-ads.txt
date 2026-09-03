@@ -7,7 +7,7 @@
 # IAB Tech Lab app-ads.txt spec. Lines beginning with # are comments and are ignored.
 #
 # ---------------------------------------------------------------------------------------
-# REPLACE pub-0000000000000000 BELOW WITH YOUR OWN ADMOB PUBLISHER ID.
+# REPLACE pub-7316609294724734 BELOW WITH YOUR OWN ADMOB PUBLISHER ID.
 #
 # Where to find it: AdMob -> Settings -> Account information ("Publisher ID"). It is also
 # the middle of your App ID:
@@ -22,7 +22,7 @@
 # requires its own entry here, or it is not allowed to bid.
 # ---------------------------------------------------------------------------------------
 
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-7316609294724734, DIRECT, f08c47fec0942fa0
 
 # Field meanings, so this stays editable without looking the spec up again:
 #   google.com         the ad system's domain
