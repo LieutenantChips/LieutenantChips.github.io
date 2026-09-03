@@ -1,0 +1,32 @@
+# app-ads.txt for ShroomVerse (com.volgakarakus.shroomverse)
+#
+# This file authorises named ad networks to sell this app's ad inventory. Buyers check it
+# before bidding, and inventory they cannot verify is often skipped outright - which is why
+# a missing or wrong file shows up as a low eCPM rather than as any kind of error.
+#
+# IAB Tech Lab app-ads.txt spec. Lines beginning with # are comments and are ignored.
+#
+# ---------------------------------------------------------------------------------------
+# REPLACE pub-0000000000000000 BELOW WITH YOUR OWN ADMOB PUBLISHER ID.
+#
+# Where to find it: AdMob -> Settings -> Account information ("Publisher ID"). It is also
+# the middle of your App ID:
+#
+#     ca-app-pub-1234567890123456~9876543210
+#            ^^^^^^^^^^^^^^^^^^^^
+#            this part, written here as  pub-1234567890123456
+#            (drop the leading "ca-app-", and stop at the tilde)
+#
+# Better still, copy the line AdMob generates for you at Apps -> app-ads.txt. That page also
+# supplies the extra lines you need if you ever enable mediation - every additional network
+# requires its own entry here, or it is not allowed to bid.
+# ---------------------------------------------------------------------------------------
+
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Field meanings, so this stays editable without looking the spec up again:
+#   google.com         the ad system's domain
+#   pub-...            your seller account with that system
+#   DIRECT             you contract with them directly (the alternative is RESELLER)
+#   f08c47fec0942fa0   Google's TAG certification id. A fixed constant, identical for every
+#                      AdMob publisher - do not change it
