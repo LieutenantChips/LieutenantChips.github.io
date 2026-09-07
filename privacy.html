@@ -6,14 +6,15 @@
 <title>Privacy Policy — ShroomVerse</title>
 <!--
   ============================================================================
-  BEFORE PUBLISHING, REPLACE EVERY [BRACKETED] PLACEHOLDER:
-    [CONTACT EMAIL]   - a support address you actually read
-    [DEVELOPER NAME]  - the legal name/entity on your Play developer account
-    [EFFECTIVE DATE]  - the date you publish this
-  AND KEEP IT TRUE. Google Play cross-checks this against your Data safety
-  form; a mismatch is a common rejection, and an inaccurate policy is a
-  liability rather than a formality. If you add a backend, accounts, or another
-  SDK, update this page in the same change.
+  KEEP THIS TRUE. It is cross-checked against BOTH store questionnaires:
+  Google Play's Data safety form and Apple's App Privacy labels. A mismatch
+  between this page and either one is a common rejection, and an inaccurate
+  policy is a liability rather than a formality.
+
+  The SDK table below is the part that goes stale. It must name every SDK that
+  ships in the build - currently Google AdMob, Firebase Crashlytics, and Unity
+  IAP. If you add a backend, accounts, analytics, or another SDK, update this
+  page in the SAME change.
   ============================================================================
 -->
 <style>
@@ -47,21 +48,21 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="sub">ShroomVerse · Last updated Sept 3 2026</p>
+<p class="sub">ShroomVerse · Last updated 7 September 2026</p>
 
 <div class="card">
   <strong>The short version.</strong> ShroomVerse has no accounts and no login, and Volga Karakus does
   not run servers that store your personal data. Your game progress is saved on your own device. The app
-  does use third-party services — Google AdMob for ads, Google Play for purchases, and Unity for analytics —
-  and those services collect device information in order to work. You can reset or limit the advertising
-  identifier they use at any time in your device settings.
+  does use third-party services — Google AdMob for ads, the App Store or Google Play for purchases, and
+  Google Firebase for crash reports — and those services collect device information in order to work. You
+  can reset or limit the advertising identifier they use at any time in your device settings.
 </div>
 
 <h2>Who we are</h2>
 <p>
   ShroomVerse ("the app", "the game") is published by Volga Karakus. If you have any
   question about this policy or your data, contact us at
-  <a href="mailto:[CONTACT EMAIL]">volgacan+shroomverse@gmail.com</a>.
+  <a href="mailto:volgacan+shroomverse@gmail.com">volgacan+shroomverse@gmail.com</a>.
 </p>
 
 <h2>What we collect ourselves</h2>
@@ -92,21 +93,22 @@
         interacted with an ad</td>
   </tr>
   <tr>
-    <td><strong>Google Play Billing</strong></td>
+    <td><strong>Apple App Store</strong> / <strong>Google Play Billing</strong></td>
     <td>Processes optional in-app purchases</td>
-    <td>Purchase and order records. Google is the seller of record — <strong>we never see or handle your
-        payment card details</strong></td>
+    <td>Purchase and order records. Apple or Google is the seller of record — <strong>we never see or
+        handle your payment card details</strong></td>
   </tr>
   <tr>
-    <td><strong>Unity Analytics</strong> (Unity Technologies)</td>
-    <td>Aggregate statistics on how the game is played, so we can fix problems and balance it</td>
-    <td>A device identifier, device model and operating system, country, and in-app events such as sessions
-        started</td>
+    <td><strong>Unity In-App Purchasing</strong> (Unity Technologies)</td>
+    <td>Connects the game to whichever store the app was installed from</td>
+    <td>Purchase events, transaction identifiers, and basic device and diagnostic information needed to
+        complete a purchase</td>
   </tr>
   <tr>
-    <td><strong>Unity In-App Purchasing</strong></td>
-    <td>Connects the game to the Google Play store</td>
-    <td>Purchase events and transaction identifiers</td>
+    <td><strong>Google Firebase Crashlytics</strong></td>
+    <td>Reports crashes so they can be found and fixed</td>
+    <td>Crash stack traces, device model, operating system version, app version, and a randomly generated
+        installation identifier. It is not linked to your name or account</td>
   </tr>
 </table>
 
@@ -125,8 +127,9 @@
 <ul>
   <li><strong>Android:</strong> Settings → Privacy → Ads, where you can delete or reset the advertising ID
       and opt out of personalised ads.</li>
-  <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Tracking. The app must ask permission before
-      it can use the identifier, and you can decline.</li>
+  <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Tracking, and Settings → Privacy &amp;
+      Security → Apple Advertising. An app may only use the identifier for tracking after asking your
+      permission; ShroomVerse does not ask, so its ads are served without it.</li>
 </ul>
 <p>
   If you are in a region covered by GDPR or similar rules, you will be shown a consent form the first time
@@ -144,7 +147,7 @@
 <p>
   ShroomVerse is not directed at children under 13 (or the equivalent minimum age in your country), and we
   do not knowingly collect personal information from them. If you believe a child has provided personal
-  information through the app, contact us at <a href="mailto:[CONTACT EMAIL]">volgacan+shroomverseurgent@gmail.com</a> and we
+  information through the app, contact us at <a href="mailto:volgacan+shroomverseurgent@gmail.com">volgacan+shroomverseurgent@gmail.com</a> and we
   will act on it.
 </p>
 
@@ -170,7 +173,7 @@
 
 <h2>Security</h2>
 <p>
-  Purchases are handled entirely by Google Play, so payment details never reach the app. Your save data
+  Purchases are handled entirely by the App Store or Google Play, so payment details never reach the app. Your save data
   stays in the app's private storage on your device, protected by your device's own security.
 </p>
 
