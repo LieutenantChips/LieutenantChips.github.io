@@ -676,8 +676,59 @@ section[id] {
   grid-column: span 2;
 }
 
-.bento-projects {
+.bento-projects,
+.bento-shots {
   grid-column: span 6;
+}
+
+.bento-shots {
+  padding: 24px 0 20px;
+  overflow: hidden;
+}
+
+.shots-rail {
+  display: flex;
+  gap: 16px;
+  padding: 8px 32px 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 32px;
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+}
+
+.shots-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.shots-rail.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.shots-rail img {
+  flex: 0 0 auto;
+  width: clamp(150px, 16vw, 200px);
+  aspect-ratio: 1179 / 2556;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  scroll-snap-align: start;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.4s var(--ease);
+}
+
+.shots-rail img:hover {
+  transform: translateY(-6px);
+}
+
+.bento-shots figcaption {
+  padding: 8px 32px 0;
+  font-size: 14px;
+  color: var(--mute);
 }
 
 .bento-meta {
@@ -791,6 +842,17 @@ section[id] {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+  /* Keep the screenshots right under the ShroomVerse card when stacked. */
+  .bento-shots {
+    order: 1;
+  }
+  .bento-eden,
+  .bento-photo {
+    order: 2;
+  }
+  .bento-projects {
+    order: 3;
+  }
 }
 
 @media (max-width: 600px) {
@@ -804,6 +866,16 @@ section[id] {
   .bento-photo {
     padding: 0;
     min-height: 200px;
+  }
+  .bento-shots {
+    padding: 16px 0;
+  }
+  .shots-rail {
+    padding-inline: 20px;
+    scroll-padding-inline: 20px;
+  }
+  .bento-shots figcaption {
+    padding-inline: 20px;
   }
   .bento-facts {
     grid-template-columns: 1fr;

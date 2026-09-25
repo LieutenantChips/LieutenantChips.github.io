@@ -54,6 +54,36 @@
     });
   }
 
+  // Mouse drag scrolls horizontal rails. Touch and trackpads scroll natively.
+  document.querySelectorAll("[data-drag-scroll]").forEach(function (rail) {
+    var startX = 0;
+    var startScroll = 0;
+    var moved = false;
+    rail.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse") return;
+      startX = e.clientX;
+      startScroll = rail.scrollLeft;
+      moved = false;
+      rail.setPointerCapture(e.pointerId);
+      rail.classList.add("is-dragging");
+    });
+    rail.addEventListener("pointermove", function (e) {
+      if (!rail.classList.contains("is-dragging")) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      rail.scrollLeft = startScroll - dx;
+    });
+    var end = function () {
+      rail.classList.remove("is-dragging");
+    };
+    rail.addEventListener("pointerup", end);
+    rail.addEventListener("pointercancel", end);
+    // Swallow the click that ends a drag.
+    rail.addEventListener("click", function (e) {
+      if (moved) e.preventDefault();
+    }, true);
+  });
+
   // Photos: on wide screens the section pins and vertical scroll pans the
   // gallery sideways. Otherwise it stays a native scroll-snap strip.
   var section = document.querySelector("[data-pan]");
